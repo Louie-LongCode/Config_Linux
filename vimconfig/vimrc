@@ -1,0 +1,260 @@
+"==============================================================================
+"Pathogen
+"==============================================================================
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+"==============================================================================
+"coding standard guidelines.
+"==============================================================================
+set shiftwidth=4 tabstop=4
+set softtabstop=4
+set nosmarttab expandtab
+set textwidth=80                "line width
+
+"==============================================================================
+"Vim settings
+"==============================================================================
+set ruler                       "disply the row col number in the task bar
+set ic                          "ignore case in search
+set laststatus=2                "status bar on always
+set showtabline=2               "tab bar on alwasy
+set splitright                  "new window alwasys on right
+set wildmenu                    "smart cmd completion option on status bar
+set autoindent                  "next line starts in the same point
+set incsearch                   "highlights search patter while typing the pattern
+set hlsearch                    "highlights all the search pattern
+set tagstack                    "Control t and ] for tags.
+set guioptions-=T               "Disable the tools bar for gvim
+set ch=2                        "set the command line high
+set tabpagemax=10               "Set tab limits
+set fillchars+=vert:\           "Set the vertical split without any char
+set cursorline                  "higlight the cursor line
+set number			"Show line number
+set pastetoggle=<F5>            "set paste use the system Clipboard
+set enc=utf-8
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+set cc=80
+set ff=unix
+set nobackup			"从不备份
+set noeb			"去掉输入错误的提示声音
+"==============================================================================
+"Plugins (~sridharp/.vim/plugin)
+"==============================================================================
+"Tlist
+"cscopeMenu
+"cscope_win
+"MRU
+"NERDtree
+"conque_term
+"colorscheme mirodark
+
+"MRU function keys
+"=================
+"o          Open file under curser in the MRU window
+"t          Open file under curser in new tab
+"v          Open file under curser in viewonly mode
+"q          quit
+"MRU pat    list only the file that matches pat
+
+"NERDtree function keys
+"======================
+"q          quit
+"t          open in a new tab
+"T          preveiw in new tab
+"i gi       open/preview in horizontal split
+"s gs       open/preview in vertical split
+"I          List the hidden files(like .vimrc) (toggle)
+"F          List files (toggle)
+"B          list bookmark (toggle)
+"A          maximize/minimize Nerdtree window (toggel)
+"o O        open the dir/Recursivly
+"x X        close the dir/Recursivly
+"<C j>      go to next siblings
+"<C k>      go to privious siblings
+"r R        refresh current/root
+
+"NERDTree keymap
+"=============
+nmap <C-\>' :NERDTreeToggle <CR>
+
+"==============================================================================
+"Cscope stuffs"
+"==============================================================================
+"set csprg=~/bin/cscope
+cs add $WS_BASE_/$BR_INFO_DIR/cscope.out
+set tags=$WS_BASE_/$BR_INFO_DIR/tags
+set cscopetag
+
+set csto=0                      "Search cscope first then tags, (1 otherwise)
+set cspc=4                      "don't list full file path in cscope results
+set cscopeverbose               "show msg when any other cscope db added
+
+"==============================================================================
+"Key maps
+"==============================================================================
+"       0 or s: Find this C symbol
+"       1 or g: Find this definition
+"       2 or d: Find functions called by this function
+"       3 or c: Find functions calling this function
+"       4 or t: Find this text string
+"       6 or e: Find this egrep pattern
+"       7 or f: Find this file
+"       8 or i: Find files #including this file
+
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+" Tabs
+"======
+:tab all
+nmap <C-\>n :tab split <CR><CR>
+nmap <C-\>i :tabs <CR>
+nmap <C-\>= :tabnew <CR><CR>
+nmap <C-\>- :tabclose <CR><CR>
+nmap <End>  :tabn <CR><CR>
+nmap <Home> :tabp <CR><CR>
+nmap <PageUp>   :tabn <CR><CR>
+nmap <PageDown> :tabp <CR><CR>
+
+"Mapping to ALT 1 to 9. Do the following to find to key ascii to map
+"set showcmd
+"go the window in the insert mode then type the key u want
+"if u see any value than that value can be mapped
+nmap 11 :tabn 1 <CR>
+nmap 22 :tabn 2 <CR>
+nmap 33 :tabn 3 <CR>
+nmap 44 :tabn 4 <CR>
+nmap 55 :tabn 5 <CR>
+nmap 66 :tabn 6 <CR>
+nmap 77 :tabn 7 <CR>
+nmap 88 :tabn 8 <CR>
+nmap 99 :tabn 9 <CR>
+
+"Tlist keymap
+"=============
+nmap <C-\>] :TlistToggle<CR><CR>
+
+"MRU keymap
+""=============
+nmap <C-\>/ :MRU <CR>
+
+"Conque term keymap
+""==================
+nmap <silent><C-\>1 :ConqueTermTab bash <CR>
+nmap <silent><C-\>2 :ConqueTermVSplit bash <CR>
+
+"powerline
+"
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+
+" Tagbar
+"nmap <slient> <F8> :TagbarToggle<CR>
+
+" Stripping white space
+" =====================
+nmap <C-\>w :StripWhitespace <CR><CR>
+
+" Tag 配置
+let Tlist_Use_Right_Window = 1 " 让taglist窗口出现在Vim的右边
+let Tlist_File_Fold_Auto_Close = 1 " 当同时显示多个文件中的tag时，设置为1，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来
+let Tlist_Show_One_File = 1 " 只显示一个文件中的tag，默认为显示多个
+let Tlist_Sort_Type = 'name' " Tag的排序规则，以名字排序。默认是以在文件中出现的顺序排序
+let Tlist_GainFocus_On_ToggleOpen = 1 " taglist窗口打开时，立刻切换为有焦点状态
+let Tlist_Exit_OnlyWindow = 1 " 如果taglist窗口是最后一个窗口，则退出vim
+
+"YouCompleteMe
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+"let g:ycm_global_ycm_extra_conf = 0
+
+"Windows
+"map <C-j> <C-W>j
+"map <C-k> <C-W>k
+"map <C-h> <C-W>h
+"map <C-l> <C-W>l
+
+map <C-M> :%s+\r++ <CR><CR>
+let g:linuxsty_patterns = [ "/new-home/louie.long/" ]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"新文件标题
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"新建.c,.h,.sh,.java文件，自动插入文件头
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
+""定义函数SetTitle，自动插入文件头
+func SetTitle()
+	"如果文件类型为.sh文件
+	if &filetype == 'sh'
+		call setline(1,"\#########################################################################")
+		call append(line("."), "\# File Name: ".expand("%"))
+		call append(line(".")+1, "\# Author: louie.long")
+		call append(line(".")+2, "\# Mail: longyu805@163.com")
+		call append(line(".")+3, "\# Created Time: ".strftime("%c"))
+		call append(line(".")+4, "\#########################################################################")
+		call append(line(".")+5, "\#!/bin/bash")
+		call append(line(".")+6, "")
+	else
+		call setline(1, "/*************************************************************************")
+		call append(line("."), "	> File Name: ".expand("%"))
+		call append(line(".")+1, "	> Author: louie.long")
+		call append(line(".")+2, "	> Mail: longyu805@163.com")
+		call append(line(".")+3, "	> Created Time: ".strftime("%c"))
+		call append(line(".")+4, " ************************************************************************/")
+		call append(line(".")+5, "")
+	endif
+	if &filetype == 'cpp'
+		call append(line(".")+6, "#include<iostream>")
+		call append(line(".")+7, "using namespace std;")
+		call append(line(".")+8, "")
+	endif
+	if &filetype == 'c'
+		call append(line(".")+6, "#include<stdio.h>")
+		call append(line(".")+7, "#include<stdlib.h>")
+		call append(line(".")+8, "#include<string.h>")
+		call append(line(".")+9, "")
+	endif
+	"	if &filetype == 'java'
+	"		call append(line(".")+6,"public class ".expand("%"))
+	"		call append(line(".")+7,"")
+	"	endif
+	"新建文件后，自动定位到文件末尾
+	autocmd BufNewFile * normal G
+endfunc
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" C，C++ 按F5编译运行
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!gcc % -o %<"
+		exec "! ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "! ./%<"
+	elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!java %<"
+	elseif &filetype == 'sh'
+		:!./%
+	elseif &filetype == 'py'
+		exec "!python %"
+		exec "!python %<"
+	endif
+endfunc
+" C,C++的调试
+map <F8> :call Rungdb()<CR>
+func! Rungdb()
+	exec "w"
+	exec "!g++ % -g -o %<"
+	exec "!gdb ./%<"
+endfunc
