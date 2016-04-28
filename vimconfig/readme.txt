@@ -24,7 +24,7 @@ cd~/.fonts/ && git clone https://github.com/scotu/ubuntu-mono-powerline.git && c
 在 ~/.zshrc 设定 DEFAULT_USER 变量可以使得即使登陆在本机
 (即非SSH到远程)时也能显示“user@hostname”
 
-
+powerline front https://github.com/powerline/fonts
 
 
 BundleInstall
