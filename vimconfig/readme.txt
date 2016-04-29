@@ -1,8 +1,6 @@
-1.mv vimconfig .vim
-2.ln -s .vim/tmux.conf .tmux.conf
-3.ln -s .vim/vimrc .vimrc
-4.ln -s .vim/bashrc .bashrc
-
+1.cp -a vimconfig ~/.vim
+2.ln -s .vim/vimrc .vimrc
+3.sudo apt install exuberant-ctags
 
 
 zshell
