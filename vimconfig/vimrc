@@ -235,15 +235,13 @@ endfunc
 
 autocmd BufNewFile *.py  exec ":call HeaderPython()" 
 function HeaderPython()
-	call setline(1, "'''")
-	call append(line("."), "	> File Name: ".expand("%"))
-	call append(line(".")+1, "	> Author: louie.long")
-	call append(line(".")+2, "	> Mail: longyu805@163.com")
-	call append(line(".")+3, "	> Created Time: ".strftime("%c"))
-	call append(line(".")+4, "'''")
-	call append(line(".")+5, "")
-    call append(line(".")+6, "#!/usr/bin/env python")
-    call append(line(".")+7, "# -*- coding: utf-8 -*-")
+	call setline(1, "# -_-! coding=utf-8 -_-!")
+    call append(line("."), "#!/usr/bin/env python")
+	call append(line(".")+1, "")
+    call append(line(".")+2, "# > File Name: ".expand("%"))
+	call append(line(".")+3, "# > Author: louie.long")
+	call append(line(".")+4, "# > Mail: longyu805@163.com")
+	call append(line(".")+5, "# > Created Time: ".strftime("%c"))
     normal G
     normal o
     normal o
