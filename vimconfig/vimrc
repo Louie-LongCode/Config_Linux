@@ -235,8 +235,8 @@ endfunc
 
 autocmd BufNewFile *.py  exec ":call HeaderPython()" 
 function HeaderPython()
-	call setline(1, "#!/usr/bin/env python")
-    call append(line("."), "# -_-! coding=utf-8 -_-!")
+    call setline(1, "#!/usr/bin/env python")
+	call append(line("."), "# -*- coding=utf-8 -*-")
 	call append(line(".")+1, "")
     call append(line(".")+2, "# > File Name: ".expand("%"))
 	call append(line(".")+3, "# > Author: louie.long")
