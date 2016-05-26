@@ -186,6 +186,8 @@ let Tlist_Exit_OnlyWindow = 1 " 如果taglist窗口是最后一个窗口，则�
 "map <C-l> <C-W>l
 
 map <C-M> :%s+\r++ <CR><CR>
+map <C-E> :%s/\s\+$//
+
 let g:linuxsty_patterns = [ "/home/louie/workplace/" ]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
