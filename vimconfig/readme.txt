@@ -26,3 +26,14 @@ powerline front https://github.com/powerline/fonts
 
 
 BundleInstall
+
+DrawIt install
+1,$vim DrawIt.vba.gz
+2,:so %
+3,:q
+
+\di：开启DrawIt
+\ds：关闭DrawIt
+\b    矩形框
+\e    椭圆
+r <space>  删除
