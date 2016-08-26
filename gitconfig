@@ -4,13 +4,13 @@ sudo git config --system alias.br branch
 sudo git config --system color.ui true
 sudo git config --system alias.st status
 sudo git config --system core.editor vim
+sudo git config --global credential.helper store
 
 git config --global alias.ci commit
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.st status
 git config --global color.ui true
-git config --global credential.helper 'cache --timeout=360000'
 git config --global core.autocrlf false
 git config --global gui.encoding utf-8
 git config --global core.quotepath off
